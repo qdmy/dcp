@@ -1,0 +1,31 @@
+# ------------- general options ----------------------------------------
+save_path = "../pcldriver/resnet50/finetune/" # log path
+data_path = "/exdata/datasets/bus_ab_beaviours/" # path for dataset folder, containing cifar10 and imagenet
+dataset = "pcldriver"  # options: imagenet | cifar10
+seed = 2020  # manually set RNG seed
+gpu = "0"  # GPU id to use, e.g. "0,1,2,3"
+print_frequency = 10
+
+# ------------- data options -------------------------------------------
+n_threads = 16  # number of threads used for data loading
+n_classes = 8  # number of classes in the dataset
+multi_frame = False
+# ------------- discrimination-aware options ---------------------------
+n_losses = 0  # number of additional losses
+
+# ------------- common optimization options ----------------------------
+batch_size = 256  # mini-batch size
+momentum = 0.9  # momentum
+weight_decay = 1e-4  # weight decay
+lr = 0.01  # initial learning rate
+n_epochs = 400  # number of total epochs
+step = [160, 240]  # multi-step for linear learning rate
+
+# ------------- model options ------------------------------------------
+net_type = "resnet"  # options: resnet | preresnet
+experiment_id = "pdynamic_20200702 "  # experiment identifier
+depth = 50  # resnet depth: (n-2)%6==0
+
+# ------------- resume or pretrained options ------------------------------
+pretrained = "/exdata/liuxu/DCP/dcp/pcldriver/resnet50/channel_selection/log_cs_resnet50_pcldriver_bs512_n3_p[0.5]_lr0.010000_20200704/check_point/model_004_cs_000.pth"  # path of the pre-trained model
+resume = "" # resume checkpoint

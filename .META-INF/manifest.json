@@ -1,0 +1,45 @@
+{
+    "name": "Discrimination-aware_Channel_Pruning",
+    "short_name": "DCP",
+    "version": "1.0.0.0",
+    "vendors": "SCUT_SMIL", 
+    "authors": "liujing",
+    "description": "辨别力感知的深度神经网络通道剪枝算法。输入一个预训练的神经网络，迭代地挑选神经网络中有辨别力的通道并进行参数优化，获得剪枝后的高精度模型。",
+    "model_module": "DiscriminationAwareChannelPruning.DCP",
+    "resource_requests": 
+    {
+        "hardware":
+        {
+            "gpu_type": "GeForce GTX 1080Ti",
+            "num_gpus": 1,
+            "gpu_memory": "10GiB",
+            "cpu_type": "Intel(R) Xeon(R)",
+            "num_cpus": 1,
+            "host_memory": "40GiB"
+        },
+        "pytorch":
+        {
+            "version_op": "==0.4.0"
+        },
+        "python":
+        {
+            "version_op": "==2.7"
+        },
+        "tensorflow":
+        {
+            "version_op": "==1.12.0"
+        },
+        "pyhocon":
+        {
+            "version_op": "==0.3.57"
+        },
+        "prettytable":
+        {
+            "version_op": "==2.0.0"
+        }
+    }
+    ,
+    "input": "剪枝后模型的保存路径，数据集的路径，预训练模型参数的路径，实验ID，剪枝率",
+    "output":"剪枝并微调后的模型",
+    "compilation_instruction": "执行前需要安装依赖包并将DCP路径添加到环境的PYTHONPATH中，如‘export PYTHONPATH=/path/to/dcp/’，然后导入该模块即可使用"
+}

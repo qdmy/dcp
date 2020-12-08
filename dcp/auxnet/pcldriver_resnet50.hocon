@@ -1,0 +1,31 @@
+# ------------- general options ----------------------------------------
+save_path = "../pcldriver/resnet50/auxnet/" # log path
+data_path = "/data2/chenzhen/" # path for dataset folder, containing cifar10 and imagenet
+dataset = "pcldriver"  # options: imagenet | cifar10
+seed = 2020  # manually set RNG seed
+gpu = "0"  # GPU id to use, e.g. "0,1,2,3"
+print_frequency = 10
+
+# ------------- data options -------------------------------------------
+n_threads = 16  # number of threads used for data loading
+n_classes = 8  # number of classes in the dataset
+multi_frame = False
+# ------------- discrimination-aware options ---------------------------
+n_losses = 3  # number of additional losses
+
+# ------------- common optimization options ---------------------------
+batch_size = 48  # mini-batch size
+momentum = 0.9  # momentum
+weight_decay = 1e-4  # weight decay
+lr = 0.01  # initial learning rate
+n_epochs = 100  # number of total epochs
+step = [40, 60]  # multi-step for linear learning rate
+
+# ------------- model options ------------------------------------------
+net_type = "resnet"  # options: resnet | preresnet | mobilenet
+experiment_id = "20200701"  # experiment identifier
+depth = 50  # resnet depth: (n-2)%6==0
+
+# ------------- resume or retrain options ------------------------------
+pretrained = "/home/chenyaofo/bus_driver_ab_detection/correct/resnet50/resnet50.pth"  # path of the pre-trained model
+resume = "" # resume checkpoint

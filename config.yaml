@@ -1,0 +1,23 @@
+auxnet:
+  conf: 'dcp/auxnet/pcldriver_*.hocon'
+  save_path: "exp/*/auxnet/" # log path
+  data_path: "/gdata/driver_behaviour/chenzhen/"
+  pretrained: "dcp/pretrain_models/*.pth"
+  n_epochs: 100
+  resume: ''
+
+channel_selection:
+  conf: 'dcp/channel_selection/pcldriver_*.hocon'
+  save_path: "exp/*/channel_selection/"
+  data_path: "/gdata/driver_behaviour/chenzhen/"
+  pretrained: "dcp/pcldriver/resnet*/auxnet/best_model_with_aux_fc.pth"
+  pruning_rate: "0.5"
+  resume: ''
+
+finetune:
+  conf: 'dcp/finetune/pcldriver_*.hocon'
+  save_path: "exp/*/finetune/"
+  data_path: "/gdata/driver_behaviour/chenzhen/"
+  pretrained: "dcp/pcldriver/resnet*/channel_selection/model_0+_cs_000.pth"
+  n_epochs: 400
+  resume: ''
